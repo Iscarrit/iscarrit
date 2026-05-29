@@ -971,27 +971,27 @@ const skins = [
     },
         
     {id:"#FF6467", zh:"红", en:"Red",
-        unlockLevel:5
+        unlockLevel:6
     },
 
     {id:"orange", zh:"橙", en:"Orange",
-        unlockLevel:7
-    },
-
-    {id:"#2984D1", zh:"蓝", en:"Blue",
         unlockLevel:8
     },
 
+    {id:"#2984D1", zh:"蓝", en:"Blue",
+        unlockLevel:11
+    },
+
     {id:"#39C5BB", zh:"青", en:"Cyan",
-        unlockLevel:13
+        unlockLevel:18
     },
 
     {id:"hotpink", zh:"粉", en:"Pink",
-        unlockLevel:16
+        unlockLevel:25
     },
 
     {id:"#AD46FF", zh:"紫", en:"Purple",
-        unlockLevel:17
+        unlockLevel:32
     },
 
     {id:"#eee", zh:"空", en:"Air"}
@@ -1296,6 +1296,8 @@ let onlyLanguageSwitching = true;
 function updateLanguageUI(){
 
     if(language === "zh"){
+        
+        document.title = "老爷卡carの跑酷";
 
         document.getElementById("title").innerText = "老爷卡carの跑酷";
         document.getElementById("versionInfo").innerText = "版本 " + VERSION;
@@ -1320,6 +1322,8 @@ function updateLanguageUI(){
         document.getElementById("currentLevelsText").innerText = "现在一共有" + levels.length + "关";
     }
     else{
+
+        document.title = "Iscarrit's Parkour";
 
         document.getElementById("title").innerText = "Iscarrit's Parkour";
         document.getElementById("versionInfo").innerText = "Version " + VERSION;
