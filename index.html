@@ -2769,6 +2769,132 @@ document.getElementById("mobileExit").onclick = ()=>{
     -创建了Firebase数据库，准备加入云端账号存档；
     -跑了半天报错一大堆，移除了云存档测试代码。
 */
+
+/* 更新日志，版本 1.15.0-beta.2，2026/5/31/20:09/：
+    -更改了版本号命名规则，现在测试版和发布版在同一版本下了；
+    -回退了上次对云存档测试代码的更改；
+    -修复了云存档测试代码的错误。
+*/
+</script>
+
+<script type="module">
+
+// 1. 引入 Firebase 模块
+import { initializeApp } from "https://www.gstatic.com/firebasejs/12.2.1/firebase-app.js";
+
+import { 
+  getAuth,
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword
+} from "https://www.gstatic.com/firebasejs/12.2.1/firebase-auth.js";
+
+import {
+  getFirestore,
+  doc,
+  setDoc,
+  getDoc
+} from "https://www.gstatic.com/firebasejs/12.2.1/firebase-firestore.js";
+
+// 2. Firebase 配置（你的）
+const firebaseConfig = {
+    apiKey: "AIzaSyBGbTAPzPfzWwWJXswFjPcLFByVghOqqrI",
+    authDomain: "iscarrit.firebaseapp.com",
+    projectId: "iscarrit",
+    storageBucket: "iscarrit.firebasestorage.app",
+    messagingSenderId: "371561653929",
+    appId: "1:371561653929:web:d8a5da4a039556a1f3ebb8",
+    measurementId: "G-Z9FCTKT49G"
+};
+
+// 3. 初始化 Firebase
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+const db = getFirestore(app);
+
+// 4. 注册测试
+window.testRegister = async function () {
+    try {
+        const userCredential = await createUserWithEmailAndPassword(
+            auth,
+            "test123@test.com",
+            "123456"
+        );
+
+        console.log("✅ 注册成功");
+        console.log("UID:", userCredential.user.uid);
+
+    } catch (err) {
+        console.error("❌ 注册失败:", err.message);
+    }
+};
+
+// 5. 登录测试
+window.testLogin = async function () {
+    try {
+        const userCredential = await signInWithEmailAndPassword(
+            auth,
+            "test123@test.com",
+            "123456"
+        );
+
+        console.log("✅ 登录成功");
+        console.log("UID:", userCredential.user.uid);
+
+    } catch (err) {
+        console.error("❌ 登录失败:", err.message);
+    }
+};
+
+// 6. 云存档（写入）
+window.testSave = async function () {
+    try {
+        const user = auth.currentUser;
+
+        if (!user) {
+            console.log("⚠️ 请先登录");
+            return;
+        }
+
+        await setDoc(doc(db, "users", user.uid), {
+            level: 5,
+            coins: 999,
+            skin: 2,
+            achievements: ["first_win", "speed_run"]
+        });
+
+        console.log("💾 存档成功");
+
+    } catch (err) {
+        console.error("❌ 存档失败:", err.message);
+    }
+};
+
+// 7. 云存档（读取）
+window.testLoad = async function () {
+    try {
+        const user = auth.currentUser;
+
+        if (!user) {
+            console.log("⚠️ 请先登录");
+            return;
+        }
+
+        const snap = await getDoc(doc(db, "users", user.uid));
+
+        if (snap.exists()) {
+            console.log("📂 读取成功:", snap.data());
+        } else {
+            console.log("⚠️ 没有存档");
+        }
+
+    } catch (err) {
+        console.error("❌ 读取失败:", err.message);
+    }
+};
+
+// 8. Firebase 已连接提示
+console.log("🔥 Firebase 已连接");
+
 </script>
 
 </body>
