@@ -708,11 +708,65 @@ let frame = 0;
 
 let gameStarted = false;
 
-const VERSION = "1.15.0-alpha.3";
+const VERSION = "1.15.0-alpha.4";
+
+// 存档系统
+const defaultSaveData = {
+    level: 0,
+
+    unlockedSkins: [],
+
+    achievements: [],
+
+    version: VERSION
+};
 
 
+let saveData = loadSave();
 
 
+// 读取存档
+function loadSave(){
+
+    let data = localStorage.getItem("saveData");
+
+    if(!data){
+        return structuredClone(defaultSaveData);
+    }
+
+    try{
+        return {
+            ...structuredClone(defaultSaveData),
+            ...JSON.parse(data)
+        };
+    }
+    catch(e){
+        console.log("存档损坏，重置");
+        return structuredClone(defaultSaveData);
+    }
+
+}
+
+
+// 保存存档
+function saveGame(){
+
+    localStorage.setItem(
+        "saveData",
+        JSON.stringify(saveData)
+    );
+
+}
+
+
+// 清空存档
+function clearSave(){
+
+    saveData = structuredClone(defaultSaveData);
+
+    saveGame();
+
+}
 
 // 音效
 const clickSound = new Audio("data:audio/mpeg;base64,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AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=");
@@ -769,7 +823,7 @@ let mobileMode =
     localStorage.getItem("mobileMode") === "true";
 
 let unlockedSkins =
-    JSON.parse(localStorage.getItem("unlockedSkins"))
+    saveData.unlockedSkins
     || defaultSkins;
 
 let equippedSkin =
@@ -1085,10 +1139,8 @@ function checkFinishAll(){
 
         unlockedSkins.push("#eee");
 
-        localStorage.setItem(
-            "unlockedSkins",
-            JSON.stringify(unlockedSkins)
-        );
+        saveData.unlockedSkins = unlockedSkins;
+        saveGame();
 
         const airSkin =
             skins.find(s=>s.id === "#eee");
@@ -1136,10 +1188,7 @@ function unlockAllSkins(){
 
     playSound(completeSound);
 
-    localStorage.setItem(
-        "unlockedSkins",
-        JSON.stringify(unlockedSkins)
-    );
+    saveData.unlockedSkins;
 
     createColorButtons();
 }
@@ -1252,13 +1301,13 @@ function renderAchievements(){
 function refreshMenu(){
 
     let savedLevel =
-        localStorage.getItem("savedLevel");
+        saveData.level;
 
     let savedAchievements =
-        localStorage.getItem("achievements");
+        saveData.achievements;
 
     let savedSkins =
-        localStorage.getItem("unlockedSkins");
+        saveData.unlockedSkins;
 
     const hasSave =
         savedLevel !== null ||
@@ -1355,7 +1404,8 @@ function exitToMenu(){
 
     gameStarted = false;
 
-    localStorage.setItem("savedLevel", level);
+    saveData.level = xxx;
+    saveGame();
 
     refreshMenu();
 
@@ -1375,10 +1425,7 @@ function unlockSkinByLevel(lv){
 
                 unlockedSkins.push(s.id);
 
-                localStorage.setItem(
-                    "unlockedSkins",
-                    JSON.stringify(unlockedSkins)
-                );
+                saveData.unlockedSkins;
 
                 showUnlockPopup(s);
             }
@@ -1398,17 +1445,10 @@ function unlockAchievement(id){
 
     playSound(achievementSound);
 
-    localStorage.setItem(
-        "achievements",
-        JSON.stringify(
-            achievements.map(a=>
-                ({
-                    id:a.id,
-                   unlocked:a.unlocked
-                })
-            )
-        )
-    );
+    saveData.achievements = achievements.map(a => ({
+        id: a.id,
+        unlocked: a.unlocked
+    }));
 
     showAchievementPopup(ach);
 }
@@ -1664,7 +1704,7 @@ document.getElementById("startBtn").onclick = () => {
     playSound(clickSound);
 
     let saved =
-        localStorage.getItem("savedLevel");
+        saveData.level;
 
     if(saved !== null){
 
@@ -1724,16 +1764,12 @@ document.getElementById("confirmYes").onclick = ()=>{
     playSound(clickSound);
 
     // 删除存档
-    localStorage.removeItem("savedLevel");
-    localStorage.removeItem("unlockedSkins");
-    localStorage.removeItem("equippedSkin");
-    localStorage.removeItem("achievements");
-    localStorage.removeItem("levelCleared");
+    clearSave();
 
     levelCleared = [];
 
     // 重置内存状态
-    unlockedSkins = defaultSkins;
+    unlockedSkins = structuredClone(defaultSkins);
     equippedSkin = "black";
     playerColor = "black";
     previewColor = "black";
@@ -1989,7 +2025,7 @@ document.addEventListener("keydown", function(e){
         playSound(clickSound);
 
         // 保存当前关卡
-        localStorage.setItem("savedLevel", level);
+        saveData.level;
         refreshMenu();
 
         // 回主菜单
@@ -2311,7 +2347,7 @@ if(player.x > c.width){
 
     level++;
 
-    localStorage.setItem("savedLevel", level);
+    saveData.level;
 
     loadLevel(level);
 }
@@ -2778,6 +2814,10 @@ document.getElementById("mobileExit").onclick = ()=>{
 
 /* 更新日志，版本1.15.0-alpha.3，2026/5/31/20:22/：
     -修复了上个版本的版本号错误。
+*/
+
+/* 更新日志，版本1.15.0-alpha.4，2026/6/3/19:11/：
+    -更改了本地存档操作为云端存档函数，未完成；
 */
 </script>
 
