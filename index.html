@@ -708,65 +708,11 @@ let frame = 0;
 
 let gameStarted = false;
 
-const VERSION = "1.15.0-alpha.4";
-
-// 存档系统
-const defaultSaveData = {
-    level: 0,
-
-    unlockedSkins: [],
-
-    achievements: [],
-
-    version: VERSION
-};
+const VERSION = "1.15.0";
 
 
-let saveData = loadSave();
 
 
-// 读取存档
-function loadSave(){
-
-    let data = localStorage.getItem("saveData");
-
-    if(!data){
-        return structuredClone(defaultSaveData);
-    }
-
-    try{
-        return {
-            ...structuredClone(defaultSaveData),
-            ...JSON.parse(data)
-        };
-    }
-    catch(e){
-        console.log("存档损坏，重置");
-        return structuredClone(defaultSaveData);
-    }
-
-}
-
-
-// 保存存档
-function saveGame(){
-
-    localStorage.setItem(
-        "saveData",
-        JSON.stringify(saveData)
-    );
-
-}
-
-
-// 清空存档
-function clearSave(){
-
-    saveData = structuredClone(defaultSaveData);
-
-    saveGame();
-
-}
 
 // 音效
 const clickSound = new Audio("data:audio/mpeg;base64,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AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=");
@@ -823,7 +769,7 @@ let mobileMode =
     localStorage.getItem("mobileMode") === "true";
 
 let unlockedSkins =
-    saveData.unlockedSkins
+    JSON.parse(localStorage.getItem("unlockedSkins"))
     || defaultSkins;
 
 let equippedSkin =
@@ -994,7 +940,6 @@ let levels = [
     {x:725,y:350,w:75,h:10,type:"ground"},
     {x:750,y:0,w:50,h:310,type:"death"},
     {x:770,y:420,w:50,h:10,type:"bounce"},
-    {x:675,y:350,w:50,h:10,type:"death"},
     {x:840,y:0,w:50,h:400,type:"death"},
     {x:730,y:490,w:120,h:10,type:"speed"},
     {x:850,y:490,w:40,h:10,type:"bounce"}
@@ -1139,8 +1084,10 @@ function checkFinishAll(){
 
         unlockedSkins.push("#eee");
 
-        saveData.unlockedSkins = unlockedSkins;
-        saveGame();
+        localStorage.setItem(
+            "unlockedSkins",
+            JSON.stringify(unlockedSkins)
+        );
 
         const airSkin =
             skins.find(s=>s.id === "#eee");
@@ -1188,7 +1135,10 @@ function unlockAllSkins(){
 
     playSound(completeSound);
 
-    saveData.unlockedSkins;
+    localStorage.setItem(
+        "unlockedSkins",
+        JSON.stringify(unlockedSkins)
+    );
 
     createColorButtons();
 }
@@ -1301,13 +1251,13 @@ function renderAchievements(){
 function refreshMenu(){
 
     let savedLevel =
-        saveData.level;
+        localStorage.getItem("savedLevel");
 
     let savedAchievements =
-        saveData.achievements;
+        localStorage.getItem("achievements");
 
     let savedSkins =
-        saveData.unlockedSkins;
+        localStorage.getItem("unlockedSkins");
 
     const hasSave =
         savedLevel !== null ||
@@ -1404,8 +1354,7 @@ function exitToMenu(){
 
     gameStarted = false;
 
-    saveData.level = xxx;
-    saveGame();
+    localStorage.setItem("savedLevel", level);
 
     refreshMenu();
 
@@ -1425,7 +1374,10 @@ function unlockSkinByLevel(lv){
 
                 unlockedSkins.push(s.id);
 
-                saveData.unlockedSkins;
+                localStorage.setItem(
+                    "unlockedSkins",
+                    JSON.stringify(unlockedSkins)
+                );
 
                 showUnlockPopup(s);
             }
@@ -1445,10 +1397,17 @@ function unlockAchievement(id){
 
     playSound(achievementSound);
 
-    saveData.achievements = achievements.map(a => ({
-        id: a.id,
-        unlocked: a.unlocked
-    }));
+    localStorage.setItem(
+        "achievements",
+        JSON.stringify(
+            achievements.map(a=>
+                ({
+                    id:a.id,
+                   unlocked:a.unlocked
+                })
+            )
+        )
+    );
 
     showAchievementPopup(ach);
 }
@@ -1704,7 +1663,7 @@ document.getElementById("startBtn").onclick = () => {
     playSound(clickSound);
 
     let saved =
-        saveData.level;
+        localStorage.getItem("savedLevel");
 
     if(saved !== null){
 
@@ -1764,12 +1723,16 @@ document.getElementById("confirmYes").onclick = ()=>{
     playSound(clickSound);
 
     // 删除存档
-    clearSave();
+    localStorage.removeItem("savedLevel");
+    localStorage.removeItem("unlockedSkins");
+    localStorage.removeItem("equippedSkin");
+    localStorage.removeItem("achievements");
+    localStorage.removeItem("levelCleared");
 
     levelCleared = [];
 
     // 重置内存状态
-    unlockedSkins = structuredClone(defaultSkins);
+    unlockedSkins = defaultSkins;
     equippedSkin = "black";
     playerColor = "black";
     previewColor = "black";
@@ -2025,7 +1988,7 @@ document.addEventListener("keydown", function(e){
         playSound(clickSound);
 
         // 保存当前关卡
-        saveData.level;
+        localStorage.setItem("savedLevel", level);
         refreshMenu();
 
         // 回主菜单
@@ -2347,7 +2310,7 @@ if(player.x > c.width){
 
     level++;
 
-    saveData.level;
+    localStorage.setItem("savedLevel", level);
 
     loadLevel(level);
 }
@@ -2796,9 +2759,7 @@ document.getElementById("mobileExit").onclick = ()=>{
 
 /* 更新日志，版本 1.14.5，2026/5/29/14:28/：
     -更改了多个皮肤的解锁条件；
-    -修复了关卡11的地形捷径；
-    -《老爷卡carの跑酷》正式在GitHub上发布；
-    -后续将加入云端账号存档。
+    -《老爷卡carの跑酷》正式在GitHub上发布。
 */
 
 /* 更新日志，版本 1.15.0，2026/5/31/19:14/：
@@ -2817,128 +2778,13 @@ document.getElementById("mobileExit").onclick = ()=>{
 */
 
 /* 更新日志，版本1.15.0-alpha.4，2026/6/3/19:11/：
-    -更改了本地存档操作为云端存档函数，未完成；
+    -更改了本地存档操作为云端存档函数，未完成。
 */
-</script>
 
-<script type="module">
-
-// 1. 引入 Firebase 模块
-import { initializeApp } from "https://www.gstatic.com/firebasejs/12.2.1/firebase-app.js";
-
-import { 
-  getAuth,
-  createUserWithEmailAndPassword,
-  signInWithEmailAndPassword
-} from "https://www.gstatic.com/firebasejs/12.2.1/firebase-auth.js";
-
-import {
-  getFirestore,
-  doc,
-  setDoc,
-  getDoc
-} from "https://www.gstatic.com/firebasejs/12.2.1/firebase-firestore.js";
-
-// 2. Firebase 配置（你的）
-const firebaseConfig = {
-    apiKey: "AIzaSyBGbTAPzPfzWwWJXswFjPcLFByVghOqqrI",
-    authDomain: "iscarrit.firebaseapp.com",
-    projectId: "iscarrit",
-    storageBucket: "iscarrit.firebasestorage.app",
-    messagingSenderId: "371561653929",
-    appId: "1:371561653929:web:d8a5da4a039556a1f3ebb8",
-    measurementId: "G-Z9FCTKT49G"
-};
-
-// 3. 初始化 Firebase
-const app = initializeApp(firebaseConfig);
-const auth = getAuth(app);
-const db = getFirestore(app);
-
-// 4. 注册测试
-window.testRegister = async function () {
-    try {
-        const userCredential = await createUserWithEmailAndPassword(
-            auth,
-            "test123@test.com",
-            "123456"
-        );
-
-        console.log("✅ 注册成功");
-        console.log("UID:", userCredential.user.uid);
-
-    } catch (err) {
-        console.error("❌ 注册失败:", err.message);
-    }
-};
-
-// 5. 登录测试
-window.testLogin = async function () {
-    try {
-        const userCredential = await signInWithEmailAndPassword(
-            auth,
-            "test123@test.com",
-            "123456"
-        );
-
-        console.log("✅ 登录成功");
-        console.log("UID:", userCredential.user.uid);
-
-    } catch (err) {
-        console.error("❌ 登录失败:", err.message);
-    }
-};
-
-// 6. 云存档（写入）
-window.testSave = async function () {
-    try {
-        const user = auth.currentUser;
-
-        if (!user) {
-            console.log("⚠️ 请先登录");
-            return;
-        }
-
-        await setDoc(doc(db, "users", user.uid), {
-            level: 5,
-            coins: 999,
-            skin: 2,
-            achievements: ["first_win", "speed_run"]
-        });
-
-        console.log("💾 存档成功");
-
-    } catch (err) {
-        console.error("❌ 存档失败:", err.message);
-    }
-};
-
-// 7. 云存档（读取）
-window.testLoad = async function () {
-    try {
-        const user = auth.currentUser;
-
-        if (!user) {
-            console.log("⚠️ 请先登录");
-            return;
-        }
-
-        const snap = await getDoc(doc(db, "users", user.uid));
-
-        if (snap.exists()) {
-            console.log("📂 读取成功:", snap.data());
-        } else {
-            console.log("⚠️ 没有存档");
-        }
-
-    } catch (err) {
-        console.error("❌ 读取失败:", err.message);
-    }
-};
-
-// 8. Firebase 已连接提示
-console.log("🔥 Firebase 已连接");
-
+/* 更新日志，版本1.15.0，2026/6/5/19:51/：
+    -云端存档宣布失败，项目暂时搁置；
+    -1.15.0正式版回退为1.14.5正式版代码。
+*/
 </script>
 
 </body>
