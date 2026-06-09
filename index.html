@@ -708,7 +708,7 @@ let frame = 0;
 
 let gameStarted = false;
 
-const VERSION = "1.15.0";
+const VERSION = "1.15.1";
 
 
 
@@ -938,7 +938,8 @@ let levels = [
     {x:435,y:310,w:10,h:40,type:"death"},
     {x:550,y:330,w:30,h:10,type:"bounce"},
     {x:725,y:350,w:75,h:10,type:"ground"},
-    {x:750,y:0,w:50,h:310,type:"death"},
+    {x:745,y:0,w:50,h:310,type:"death"},
+    {x:670,y:350,w:55,h:10,type:"death"},
     {x:770,y:420,w:50,h:10,type:"bounce"},
     {x:840,y:0,w:50,h:400,type:"death"},
     {x:730,y:490,w:120,h:10,type:"speed"},
@@ -948,7 +949,7 @@ let levels = [
 // 12
 [
     {x:0,y:450,w:1000,h:50,type:"ground"},
-    {x:0,y:0,w:1000,h:50,type:"ground"},
+    {x:0,y:0,w:1000,h:50,type:"ground"}
 ]
 ];
 
@@ -2784,6 +2785,10 @@ document.getElementById("mobileExit").onclick = ()=>{
 /* 更新日志，版本1.15.0，2026/6/5/19:51/：
     -云端存档宣布失败，项目暂时搁置；
     -1.15.0正式版回退为1.14.5正式版代码。
+*/
+
+/* 更新日志，版本1.15.1，2026/6/8/18:47/：
+    -修复了第11关可跳过部分地图的错误。
 */
 </script>
 
