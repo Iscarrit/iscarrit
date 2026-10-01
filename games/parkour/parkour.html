@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+
+<!-- 导入主CSS -->
+<link rel="stylesheet" href="CSS/CSSmain/achievement.css">
+<link rel="stylesheet" href="CSS/CSSmain/main.css">
+<link rel="stylesheet" href="CSS/CSSmain/mobile.css">
+<link rel="stylesheet" href="CSS/CSSmain/newGame.css">
+<link rel="stylesheet" href="CSS/CSSmain/popup.css">
+<link rel="stylesheet" href="CSS/CSSmain/skin.css">
+
+</head>
+<body>
+
+<!-- 标题菜单 -->
+
+<div id="versionInfo">版本</div>
+
+<div id="menu">
+
+    <h1 id="title">老爷卡carの跑酷</h1>
+
+    <button id="startBtn">开始游戏</button>
+
+    <button id="newGameBtn">清空存档</button>
+
+    <button id="langBtn">Switch Language</button>
+
+    <button id="skinBtn">皮肤</button>
+
+    <h3 id="switchLevelsText">使用【/】键切换关卡</h3>
+    <h3 id="backToMainText">使用【Esc】键回到主菜单</h3>
+    <h3 id="openAchText">使用【L】键查看成就</h3>
+
+    <h4 id="currentLevelsText"></h4>
+</div>
+
+<div id="deleteConfirm" style="display:none;">
+    <h1 id="deleteText">确定要删除存档吗？</h1>
+
+    <div style="display:flex; gap:20px; margin-top:20px;">
+        <button id="confirmYes">确定</button>
+        <button id="confirmNo">取消</button>
+    </div>
+</div>
+
+<button id="achBtn">🏆</button>
+
+<button id="mobileBtn">📱</button>
+<button id="mobileLeft" style="display:none;">⮜</button>
+<button id="mobileRight" style="display:none;">⮞</button>
+<button id="mobileJump" style="display:none;">▲</button>
+<button id="mobileExit" style="display:none;">↩️</button>
+
+<div id="skinMenu" style="display:none;">
+
+    <h1 id="skinTitle">选择皮肤</h1>
+
+    <canvas id="skinPreview" width="200" height="200"></canvas>
+
+    <div id="colorButtons"></div>
+
+    <div>
+
+        <button id="backSkin">返回</button>
+
+        <button id="confirmSkin">确定</button>
+
+    </div>
+
+</div>
+
+<div id="achMenu" style="display:none;">
+
+    <h1 id="achTitle">成就</h1>
+
+    <div id="achList"></div>
+
+    <button id="achExit">退出</button>
+
+</div>
+
+<div id="unlockPopup">
+
+    <h2 id="unlockText">
+        新皮肤解锁！
+    </h2>
+
+    <canvas id="unlockPreview"
+        width="70"
+        height="70">
+    </canvas>
+
+</div>
+
+<div id="achUnlockPopup">
+
+    <h2 id="achUnlockText">成就解锁！</h2>
+
+    <div id="achUnlockDesc"></div>
+
+</div>
+
+<div id="messagePopup">
+
+    <h2 id="messageText">
+        Message
+    </h2>
+
+</div>
+
+<div id="inputPopup">
+
+    <h2 id="inputTitle">
+        输入内容
+    </h2>
+
+    <input id="popupInput" type="text">
+
+    <button id="popupConfirm">
+        确定
+    </button>
+
+</div>
+
+<div id="info">关卡: 1</div>
+
+<canvas id="game" width="1000" height="500" tabindex="1"></canvas>
+
+<!-- 导入JS数据 -->
+<script src="JS/data/audio.js"></script>
+<script src="JS/data/bgm.js"></script>
+<script src="JS/data/levels.js"></script>
+
+<!-- 导入JS功能 -->
+<script src="JS/functions/skins.js"></script>
+<script src="JS/functions/achievements.js"></script>
+<script src="JS/functions/languages.js"></script>
+<script src="JS/functions/mobile.js"></script>
+<script src="JS/functions/cheats.js"></script>
+
+<!-- 导入JS按钮 -->
+<script src="JS/buttons/achievementButtons.js"></script>
+<script src="JS/buttons/languageButtons.js"></script>
+<script src="JS/buttons/newGameButtons.js"></script>
+<script src="JS/buttons/skinButtons.js"></script>
+<script src="JS/buttons/startButtons.js"></script>
+<script src="JS/buttons/mobileButtons.js"></script>
+<script src="JS/buttons/cheatButtons.js"></script>
+
+<!-- 执行主JS -->
+<script src="main.js"></script>
+
+</body>
+</html>
