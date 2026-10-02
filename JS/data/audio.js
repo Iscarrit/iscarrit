@@ -1,1 +1,0 @@
-const mainClickSound = new Audio("./data/audio/button.mp3");
