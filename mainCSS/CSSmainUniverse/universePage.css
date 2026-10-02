@@ -1,0 +1,67 @@
+#universePageCards {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1vw;
+    padding: 1vw;
+
+}
+
+#universePageTitle {
+    text-align: center;
+    margin-top: 1vh;
+}
+
+#universePageSubTitle {
+    text-align: center;
+    margin-top: 0.5vh;
+}
+
+#universePageCharactersTitle {
+    text-align: left;
+    margin-top: 2vh;
+    margin-bottom: 1vh;
+    margin-left: 1vw;
+}
+
+.universePageCards {
+    background-color: lightgray;
+    border: gray solid 5px;
+    width: auto;
+    height: width;
+
+    align-items: center;
+
+}
+
+#universePage h2 {
+    text-align: center;
+    margin-top: 0.5vh;
+    margin-bottom: 0.5vh;
+}
+
+#universePage button {
+    width: 8vw;
+    height: 6vh;
+
+    background-color: white;
+    border: gray solid 4px;
+
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+
+    display: flex;
+    margin: 1vh auto 1vh auto;
+
+    font-size: 95%;
+    font-weight: bold;
+}
+
+#universePage img {
+    width: 70%;
+    height: width;
+
+    display: block;
+    margin: 0 auto;
+
+}

@@ -1,0 +1,28 @@
+#deleteConfirm{
+    position:absolute;
+    left:0;
+    top:0;
+    width:100%;
+    height:100%;
+    background:#ddd;
+
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+
+    z-index:999;
+}
+
+#deleteConfirm button{
+    width:160px;
+    height:70px;
+    font-size:24px;
+    cursor:crosshair;
+
+    transition:0.15s;
+}
+
+#deleteConfirm button:hover{
+    transform:scale(1.1);
+}

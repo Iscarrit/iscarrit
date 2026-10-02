@@ -1,0 +1,28 @@
+body {
+    margin: 0;
+    padding: 0;
+    
+    background-color: #eff6f5;
+    font-family: 'Lucida Console';
+}
+
+button {
+    background: none;
+    border: none;
+
+    cursor: crosshair;
+}
+
+button:hover {
+    transition: 0.15s;
+    transform: scale(1.05);
+}
+
+button:active {
+    transition: none;
+    transform: scale(0.95);
+}
+
+body::-webkit-scrollbar {
+    display: none;
+}
