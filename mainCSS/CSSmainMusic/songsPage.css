@@ -1,0 +1,24 @@
+#musicSongsPageList1Title {
+    text-align: left;
+    margin-top: 2vh;
+    margin-bottom: 1vh;
+    margin-left: 1vw;
+}
+
+#musicSongsPageList1SubTitle {
+    text-align: left;
+    margin-top: 2vh;
+    margin-bottom: 0;
+    margin-left: 1vw;
+}
+
+#musicSongsPage pre {
+    text-align: left;
+    margin-top: 1vh;
+    margin-bottom: 1vh;
+    margin-left: 1vw;
+
+    line-height: 2;
+
+    font-family: 'Lucida Sans';
+}

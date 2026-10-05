@@ -12,32 +12,45 @@ universePageIdList = [
     "universeCharactersPage2",
 ];
 
+musicPageIdList = [
+    "musicSongsPage"
+];
+
 // 显示页面
 function show(pageId) {
+    if (pageId !== "gameFrame") {
+        document.getElementById("gameFrame").style.display = "none";
+        document.getElementById("gameFrame").src = "";
+    }
+
     if (pageId === "gamePage") {
         document.getElementById(pageId).style.display = "grid";
-        for (let i = 0; i < pageIdList.length; i++) {
-            if (pageIdList[i] !== pageId) {
-                document.getElementById(pageIdList[i]).style.display = "none";
-            }
-        }
     } else {
-        if (pageId !== "gameFrame") {
-            document.getElementById("gameFrame").style.display = "none";
-            document.getElementById("gameFrame").src = "";
-        }
-
         document.getElementById(pageId).style.display = "block";
-        for (let i = 0; i < pageIdList.length; i++) {
-            if (pageIdList[i] !== pageId) {
-                document.getElementById(pageIdList[i]).style.display = "none";
-            }
+    }
+
+    // 主页
+    for (let i = 0; i < pageIdList.length; i++) {
+        if (pageIdList[i] === pageId) {
+            continue;
         }
-        for (i = 0; i < universePageIdList.length; i++) {
-            if (universePageIdList[i] !== pageId) {
-                document.getElementById(universePageIdList[i]).style.display = "none";
-            }
+        document.getElementById(pageIdList[i]).style.display = "none";
+    }
+
+    // 世界观
+    for (let i = 0; i < universePageIdList.length; i++) {
+        if (universePageIdList[i] === pageId) {
+            continue;
         }
+        document.getElementById(universePageIdList[i]).style.display = "none";
+    }
+
+    // 音乐
+    for (let i = 0; i < musicPageIdList.length; i++) {
+        if (musicPageIdList[i] === pageId) {
+            continue;
+        }
+        document.getElementById(musicPageIdList[i]).style.display = "none";
     }
 }
 
@@ -71,4 +84,12 @@ show("mainPage");
     -修复了上一更新公告中的标点错误；
     -修复了部分大型bug；
     -后续可能更改data文件格式为JSON。
+*/
+
+/* 更新日志，版本0.3.3-alpha.8，2026/10/4/20:10/：
+    -加入了音乐页面；
+    -加入了音乐页面的单元格及内部元素；
+    -加入了音乐歌单页面；
+    -修复了世界观角色页面无法正确隐藏的bug；
+    -暂时搁置更改data文件格式为JSON。
 */

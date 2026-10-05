@@ -1,20 +1,18 @@
 #gamePage {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 2vw;
-    padding: 0;
-
-    user-select: none;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1vw;
+    padding: 1vw;
+    
 }
 
-#parkour, #wsol {
+.gamesCards {
     background-color: lightgray;
     border: gray solid 5px;
+
     width: auto;
-    height: 80vh;
 
     align-items: center;
-    margin-top: 0.5vh;
 }
 
 #parkourTitle, #wsolTitle {
@@ -34,7 +32,7 @@
     width: auto;
     height: 45vh;
 
-    display: flex;
+    display: block;
     margin: 0 auto;
 }
 
@@ -50,7 +48,7 @@
     align-items: center;
 
     display: flex;
-    margin: 5vh auto 0 auto;
+    margin: 2vh auto 2vh auto;
 
     font-size: 95%;
     font-weight: bold;

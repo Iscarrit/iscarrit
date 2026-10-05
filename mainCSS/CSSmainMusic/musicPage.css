@@ -1,0 +1,45 @@
+#musicPageCards {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1vw;
+    padding: 1vw;
+
+}
+
+#songsCard,
+#artistsCard,
+#derivativesCard,
+#principlesCard {
+    background-color: lightgray;
+    border: gray solid 5px;
+    width: auto;
+    height: 75vh;
+
+    align-items: center;
+
+}
+
+#musicPage button {
+    width: 8vw;
+    height: 6vh;
+
+    background-color: white;
+    border: gray solid 4px;
+
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+
+    display: flex;
+    margin: 1vh auto 1vh auto;
+
+    font-size: 95%;
+    font-weight: bold;
+}
+
+#musicPage h2,
+#musicPage h3 {
+    text-align: center;
+    margin-top: 0.5vh;
+    margin-bottom: 0.5vh;
+}
