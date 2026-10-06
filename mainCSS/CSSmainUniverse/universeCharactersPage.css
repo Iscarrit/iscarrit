@@ -1,14 +1,23 @@
-#universeCharactersPage {
+.universeCharactersPages {
     margin-left: 1vw;
+
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+
 }
 
 #universeCharactersPage img {
-    width: 15vw;
+    width: 25vw;
     aspect-ratio: 1/1;
 
     margin-top: 2vh;
 
-    display: flex;
-
     border: gray solid 4px;
+
+    text-align: left;
+}
+
+.universeCharactersPageTitles {
+    gap: 0;
+
 }

@@ -1,4 +1,4 @@
-pageIdList = [
+mainPageIdList = [
     "mainPage", 
     "universePage", 
     "novelPage", 
@@ -23,18 +23,14 @@ function show(pageId) {
         document.getElementById("gameFrame").src = "";
     }
 
-    if (pageId === "gamePage") {
-        document.getElementById(pageId).style.display = "grid";
-    } else {
-        document.getElementById(pageId).style.display = "block";
-    }
+    (pageId.includes("universeCharactersPage")) ? document.getElementById(pageId).style.display = "grid" : document.getElementById(pageId).style.display = "block";
 
     // 主页
-    for (let i = 0; i < pageIdList.length; i++) {
-        if (pageIdList[i] === pageId) {
+    for (let i = 0; i < mainPageIdList.length; i++) {
+        if (mainPageIdList[i] === pageId) {
             continue;
         }
-        document.getElementById(pageIdList[i]).style.display = "none";
+        document.getElementById(mainPageIdList[i]).style.display = "none";
     }
 
     // 世界观
@@ -92,4 +88,10 @@ show("mainPage");
     -加入了音乐歌单页面；
     -修复了世界观角色页面无法正确隐藏的bug；
     -暂时搁置更改data文件格式为JSON。
+*/
+
+/* 更新日志，版本0.3.3-alpha.9，2026/10/5/17:06/：
+    -更改了世界观角色页面的布局，暂时性保留，后面会改；
+    -更改了音乐歌单页面的结构；
+    -后续将加入日期彩蛋。
 */
