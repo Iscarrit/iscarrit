@@ -1,9 +1,8 @@
-.universeCharactersPages {
+#universeCharactersPage {
     margin-left: 1vw;
 
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-
+    display: flex;
+    align-items: center;
 }
 
 #universeCharactersPage img {
@@ -18,6 +17,11 @@
 }
 
 .universeCharactersPageTitles {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
     gap: 0;
+    margin-left: 2vw;
 
+    text-align: left;
 }

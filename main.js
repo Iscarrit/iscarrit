@@ -10,6 +10,14 @@ mainPageIdList = [
 universePageIdList = [
     "universeCharactersPage1",
     "universeCharactersPage2",
+    "universeCharactersPage3",
+    "universeCharactersPage4",
+    "universeCharactersPage5",
+    "universeCharactersPage6",
+    "universeCharactersPage7",
+    "universeCharactersPage8",
+    "universeCharactersPage9",
+    "universeCharactersPage10"
 ];
 
 musicPageIdList = [
@@ -23,7 +31,7 @@ function show(pageId) {
         document.getElementById("gameFrame").src = "";
     }
 
-    (pageId.includes("universeCharactersPage")) ? document.getElementById(pageId).style.display = "grid" : document.getElementById(pageId).style.display = "block";
+    (pageId.includes("universeCharactersPage")) ? document.getElementById(pageId).style.display = "flex" : document.getElementById(pageId).style.display = "block";
 
     // 主页
     for (let i = 0; i < mainPageIdList.length; i++) {
@@ -101,4 +109,12 @@ show("mainPage");
     -加入了剩下的所有角色页面；
     -后续将加入日期彩蛋；
     -后续将陆续导入需要的图片。
+*/
+
+/* 更新日志，版本0.3.3-alpha.11，2026/10/6/21:34/：
+    -修复了世界观角色页面无法正确隐藏的bug；
+    -加入了世界观页面按钮的功能；
+    -后续将加入日期彩蛋；
+    -后续将陆续导入需要的图片；
+    -后续将加入人物名言名句。
 */
