@@ -1,4 +1,6 @@
-#universePageCharactersCards {
+#musicArtistsPageForeignCards,
+#musicArtistsPageJapaneseCards,
+#musicArtistsPageChineseCards {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 1vw;
@@ -6,37 +8,49 @@
 
 }
 
-#universePageTitle,
-#universePageSubTitle {
+#musicArtistsPageTitle,
+#musicArtistsPageSubTitle {
     text-align: center;
     margin-top: 0.5vh;
     margin-bottom: 0.5vh;
 }
 
-#universePageCharactersTitle {
+#musicArtistsPageForeignTitle,
+#musicArtistsPageJapaneseTitle,
+#musicArtistsPageChineseTitle {
     text-align: left;
     margin-top: 2vh;
     margin-bottom: 1vh;
     margin-left: 1vw;
 }
 
-.universePageCharactersCards {
-    background-color: lightgray;
-    border: gray solid 5px;
-    width: auto;
-    aspect-ratio: 1/1;
-
-    align-items: center;
-
-}
-
-#universePage h2 {
+#musicArtistsPage h2 {
     text-align: center;
     margin-top: 0.5vh;
     margin-bottom: 0.5vh;
 }
 
-#universePage button {
+.musicArtistsPageCards {
+    background-color: lightgray;
+    border: gray solid 5px;
+
+    width: auto;
+    height: 1/1;
+
+    align-items: center;
+}
+
+#musicArtistsPage img {
+    width: 70%;
+    aspect-ratio: 1/1;
+
+    display: block;
+    margin: 0 auto;
+    margin-top: 1vh;
+    margin-bottom: 1vh;
+}
+
+#musicArtistsPage button {
     width: 8vw;
     height: 6vh;
 
@@ -52,13 +66,4 @@
 
     font-size: 95%;
     font-weight: bold;
-}
-
-#universePage img {
-    width: 70%;
-    aspect-ratio: 1/1;
-
-    display: block;
-    margin: 0 auto;
-
 }

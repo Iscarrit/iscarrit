@@ -13,7 +13,7 @@
     background-color: lightgray;
     border: gray solid 5px;
     width: auto;
-    height: 75vh;
+    height: 68vh;
 
     align-items: center;
 
@@ -37,9 +37,21 @@
     font-weight: bold;
 }
 
+#musicPage h1,
 #musicPage h2,
 #musicPage h3 {
     text-align: center;
     margin-top: 0.5vh;
     margin-bottom: 0.5vh;
+}
+
+#musicPage img {
+    width: 70%;
+    height: auto;
+
+    display: block;
+
+    margin: 0 auto;
+    margin-top: 5vh;
+    margin-bottom: 5vh;
 }

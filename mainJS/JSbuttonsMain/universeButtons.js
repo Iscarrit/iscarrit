@@ -6,70 +6,70 @@ document.getElementById("universeBtn").onclick = () => {
     show("universePage");
 }
 
-document.getElementById("universePageCard1Btn").onclick = () => {
+document.getElementById("universePageCharactersCard1Btn").onclick = () => {
 
     playSound(mainClickSound);
 
     show("universeCharactersPage1");
 }
 
-document.getElementById("universePageCard2Btn").onclick = () => {
+document.getElementById("universePageCharactersCard2Btn").onclick = () => {
 
     playSound(mainClickSound);
 
     show("universeCharactersPage2");
 }
 
-document.getElementById("universePageCard3Btn").onclick = () => {
+document.getElementById("universePageCharactersCard3Btn").onclick = () => {
 
     playSound(mainClickSound);
 
     show("universeCharactersPage3");
 }
 
-document.getElementById("universePageCard4Btn").onclick = () => {
+document.getElementById("universePageCharactersCard4Btn").onclick = () => {
 
     playSound(mainClickSound);
 
     show("universeCharactersPage4");
 }
 
-document.getElementById("universePageCard5Btn").onclick = () => {
+document.getElementById("universePageCharactersCard5Btn").onclick = () => {
 
     playSound(mainClickSound);
 
     show("universeCharactersPage5");
 }
 
-document.getElementById("universePageCard6Btn").onclick = () => {
+document.getElementById("universePageCharactersCard6Btn").onclick = () => {
 
     playSound(mainClickSound);
 
     show("universeCharactersPage6");
 }
 
-document.getElementById("universePageCard7Btn").onclick = () => {
+document.getElementById("universePageCharactersCard7Btn").onclick = () => {
 
     playSound(mainClickSound);
 
     show("universeCharactersPage7");
 }
 
-document.getElementById("universePageCard8Btn").onclick = () => {
+document.getElementById("universePageCharactersCard8Btn").onclick = () => {
 
     playSound(mainClickSound);
 
     show("universeCharactersPage8");
 }
 
-document.getElementById("universePageCard9Btn").onclick = () => {
+document.getElementById("universePageCharactersCard9Btn").onclick = () => {
 
     playSound(mainClickSound);
 
     show("universeCharactersPage9");
 }
 
-document.getElementById("universePageCard10Btn").onclick = () => {
+document.getElementById("universePageCharactersCard10Btn").onclick = () => {
 
     playSound(mainClickSound);
 

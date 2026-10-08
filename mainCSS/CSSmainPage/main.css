@@ -4,6 +4,8 @@ html, body {
     
     background-color: #eff6f5;
     font-family: 'Lucida Console';
+
+    line-height: 1.5;
 }
 
 button {

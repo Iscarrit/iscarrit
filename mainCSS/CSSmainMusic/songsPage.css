@@ -11,17 +11,13 @@
     border: gray solid 5px;
 
     width: auto;
-    height: 75vh;
+    height: 61vh;
 
     align-items: center;
 }
 
-#musicSongsPage h2 {
-    text-align: center;
-    margin-top: 0.5vh;
-    margin-bottom: 0.5vh;
-}
-
+#musicSongsPage h1,
+#musicSongsPage h2,
 #musicSongsPage h3 {
     text-align: center;
     margin-top: 0.5vh;
@@ -44,4 +40,14 @@
 
     font-size: 95%;
     font-weight: bold;
+}
+
+#musicSongsPage img {
+    width: auto;
+    height: 60%;
+
+    display: block;
+    margin: 0 auto;
+    margin-top: 2vh;
+    margin-bottom: 2vh;
 }

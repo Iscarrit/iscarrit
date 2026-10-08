@@ -12,3 +12,10 @@ document.getElementById("songsCardBtn").onclick = () => {
 
     show("musicSongsPage");
 }
+
+document.getElementById("artistsCardBtn").onclick = () => {
+
+    playSound(mainClickSound);
+
+    show("musicArtistsPage")
+}

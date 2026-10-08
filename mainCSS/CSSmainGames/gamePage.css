@@ -11,8 +11,15 @@
     border: gray solid 5px;
 
     width: auto;
+    height: 68vh;
 
     align-items: center;
+}
+
+#gamePageTitle {
+    text-align: center;
+    margin-top: 0.5vh;
+    margin-bottom: 0.5vh;
 }
 
 #parkourTitle, 
@@ -32,7 +39,7 @@
 #parkourCoverImg,
 #wsolCoverImg {
     width: auto;
-    height: 45vh;
+    height: 60%;
 
     display: block;
     margin: 0 auto;
