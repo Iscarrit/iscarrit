@@ -32,7 +32,7 @@
 
 #carImg {
     width: 14vh;
-    height: 14vh;
+    height: 1/1;
 
     text-align: left;
 }
@@ -84,4 +84,38 @@
 
     width: 8vw;
     height: 15vh;
+}
+
+/* 彩蛋 */
+#birthdayImg {
+    position: absolute;
+    z-index: 9999;
+    pointer-events: none;
+
+    width: 7vh;
+    height: auto;
+
+    transform: translateY(-60%) translateX(135%) rotate(40deg);
+}
+
+#mikuImg {
+    position: absolute;
+    z-index: 9999;
+    pointer-events: none;
+
+    width: 8vh;
+    height: auto;
+
+    transform: translateY(-5%) translateX(115%);
+}
+
+#miku01Img {
+    position: absolute;
+    z-index: 9999;
+    pointer-events: none;
+
+    width: 2vh;
+    height: auto;
+
+    transform: translateY(30%) translateX(440%);
 }

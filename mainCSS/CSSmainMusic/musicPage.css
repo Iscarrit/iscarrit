@@ -13,7 +13,7 @@
     background-color: lightgray;
     border: gray solid 5px;
     width: auto;
-    height: 68vh;
+    height: 66vh;
 
     align-items: center;
 
@@ -52,6 +52,6 @@
     display: block;
 
     margin: 0 auto;
-    margin-top: 5vh;
-    margin-bottom: 5vh;
+    margin-top: 4vh;
+    margin-bottom: 4vh;
 }

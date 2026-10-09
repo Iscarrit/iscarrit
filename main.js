@@ -61,6 +61,34 @@ function show(pageId) {
 
 show("mainPage");
 
+const date = new Date();
+
+if (
+    (date.getMonth() + 1 === 10 && date.getDate() >= 17 - 7 && date.getDate() <= 17 + 7) || 
+    (date.getMonth() + 1 === 4 && date.getDate() >= 8 - 7 && date.getDate() <= 8 + 7) 
+) {
+    
+    document.getElementById("birthdayImg").style.display = "block";
+    document.getElementById("mikuImg").style.display = "none";
+    document.getElementById("miku01Img").style.display = "none";
+
+} else if (
+    (date.getMonth() + 1 === 3 && date.getDate() >= 9 - 7 && date.getDate() <= 9 + 7) ||
+    (date.getMonth() + 1 === 8 && date.getDate() >= 31 - 7 && date.getDate() <= 31 + 7)
+) {
+
+    document.getElementById("mikuImg").style.display = "block";
+    document.getElementById("miku01Img").style.display = "block";
+    document.getElementById("birthdayImg").style.display = "none";
+
+} else {
+
+    document.getElementById("birthdayImg").style.display = "none";
+    document.getElementById("mikuImg").style.display = "none";
+    document.getElementById("miku01Img").style.display = "none";
+
+}
+
 /* 更新日志，版本0.3.3-alpha.4，2026/9/30/21:45/：
     -重新定位了项目为综合型个人网站；
     -《老爷卡carの跑酷》变为了《老爷卡car官网》下的一个分支；
@@ -139,3 +167,9 @@ show("mainPage");
     -加入了行高主CSS；
     -后续将加入日期彩蛋。
 */
+
+/* 更新日志，版本0.4.0-alpha.2，2026/10/8/21:30/：
+    -加入了更多音乐制作人
+    -加入了生日日期彩蛋；
+    -加入了初音未来日期彩蛋。
+*/ 
