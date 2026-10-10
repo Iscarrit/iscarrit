@@ -7,23 +7,22 @@ mainPageIdList = [
     "accountPage"
 ];
 
-universePageIdList = [
-    "universeCharactersPage1",
-    "universeCharactersPage2",
-    "universeCharactersPage3",
-    "universeCharactersPage4",
-    "universeCharactersPage5",
-    "universeCharactersPage6",
-    "universeCharactersPage7",
-    "universeCharactersPage8",
-    "universeCharactersPage9",
-    "universeCharactersPage10"
-];
+universePageIdList = [];
+
+for (let i = 0; i < document.getElementById("universeCharactersPage").children.length; i++) {
+    universePageIdList[i] = `universeCharactersPage${i + 1}`;
+}
 
 musicPageIdList = [
     "musicSongsPage",
     "musicArtistsPage"
 ];
+
+musicArtistsPageIdList = [];
+
+for (let i = 0; i < document.getElementById("musicArtistsPagePage").children.length; i++) {
+    musicArtistsPageIdList[i] = `musicArtistsPagePage${i + 1}`;
+}
 
 // 显示页面
 function show(pageId) {
@@ -32,30 +31,37 @@ function show(pageId) {
         document.getElementById("gameFrame").src = "";
     }
 
-    (pageId.includes("universeCharactersPage")) ? document.getElementById(pageId).style.display = "flex" : document.getElementById(pageId).style.display = "block";
-
     // 主页
     for (let i = 0; i < mainPageIdList.length; i++) {
-        if (mainPageIdList[i] === pageId) {
-            continue;
+        if (mainPageIdList[i] !== pageId) {
+            document.getElementById(mainPageIdList[i]).style.display = "none";
         }
-        document.getElementById(mainPageIdList[i]).style.display = "none";
     }
 
     // 世界观
     for (let i = 0; i < universePageIdList.length; i++) {
-        if (universePageIdList[i] === pageId) {
-            continue;
+        if (universePageIdList[i] !== pageId) {
+            document.getElementById(universePageIdList[i]).style.display = "none";
         }
-        document.getElementById(universePageIdList[i]).style.display = "none";
     }
 
     // 音乐
     for (let i = 0; i < musicPageIdList.length; i++) {
-        if (musicPageIdList[i] === pageId) {
-            continue;
+        if (musicPageIdList[i] !== pageId) {
+            document.getElementById(musicPageIdList[i]).style.display = "none";
         }
-        document.getElementById(musicPageIdList[i]).style.display = "none";
+    }
+
+    for (let i = 0; i < musicArtistsPageIdList.length; i++) {
+        if (musicArtistsPageIdList[i] !== pageId) {
+            document.getElementById(musicArtistsPageIdList[i]).style.display = "none";
+        }
+    }
+
+    if (pageId.includes("musicArtistsPagePage")) {
+        document.getElementById(pageId).style.display = "flex";
+    } else {
+        document.getElementById(pageId).style.display = "block";
     }
 }
 
@@ -113,8 +119,8 @@ if (
     -更改了部分CSS属性；
     -更改了部分CSS的作用域；
     -移动了部分CSS代码的位置；
-    -加入了上一更新公告中漏写的部分；
-    -修复了上一更新公告中的标点错误；
+    -加入了上一更新日志中漏写的部分；
+    -修复了上一更新日志中的标点错误；
     -修复了部分大型bug；
     -后续可能更改data文件格式为JSON。
 */
@@ -169,7 +175,14 @@ if (
 */
 
 /* 更新日志，版本0.4.0-alpha.2，2026/10/8/21:30/：
-    -加入了更多音乐制作人
+    -加入了更多音乐制作人；
     -加入了生日日期彩蛋；
     -加入了初音未来日期彩蛋。
 */ 
+
+/* 更新日志，版本0.4.1-alpha.1，2026/10/9/21:51/：
+    -加入了音乐制作人档案页面；
+    -更改了带编号页面显示或隐藏的实现方法；
+    -加入了上一更新日志中漏写的标点；
+    -更改了0.3.3-alpha.7更新日志中的用词错误。
+*/

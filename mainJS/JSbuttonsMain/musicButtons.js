@@ -19,3 +19,16 @@ document.getElementById("artistsCardBtn").onclick = () => {
 
     show("musicArtistsPage")
 }
+
+for (let i = 1; i <= document.getElementById("musicArtistsPagePage").children.length; i++) {
+    const btn = document.getElementById(`musicArtistsPageCard${i}Btn`);
+
+    if (btn) {
+        btn.onclick = () => {
+
+            playSound(mainClickSound);
+            show(`musicArtistsPagePage${i}`);
+            
+        };
+    }
+}
