@@ -10,6 +10,10 @@
     align-items: flex-start;
 }
 
+.musicArtistsPagePageImgs {
+    flex-direction: column;
+}
+
 .musicArtistsPagePagesText {
     display: flex;
     flex-direction: column;
@@ -21,7 +25,7 @@
 
 #musicArtistsPagePage img {
     width: 25vw;
-    aspect-ratio: 1/1;
+    height: auto;
 
     margin-top: 2vh;
 
