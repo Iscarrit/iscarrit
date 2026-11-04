@@ -1,0 +1,20 @@
+#accountPageTitle,
+#accountPageSubTitle {
+    text-align: center;
+    margin-top: 0.5vh;
+    margin-bottom: 0.5vh;
+}
+
+#accountPage {
+    margin-left: 1vw;
+    margin-right: 1vw;
+}
+
+#accountPageText {
+    margin-left: 6vw;
+}
+
+#accountPageTextList,
+#accountPageTextCautionList {
+    font-family: sans-serif;
+}

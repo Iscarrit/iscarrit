@@ -1,26 +1,31 @@
 mainPageIdList = [
-    "mainPage", 
-    "universePage", 
-    "novelPage", 
-    "gamePage", 
-    "musicPage", 
-    "accountPage"
+    "mainPage",
+    "universePage",
+    "novelPage",
+    "gamePage",
+    "musicPage",
+    "accountPage",
 ];
 
 universePageIdList = [];
 
-for (let i = 0; i < document.getElementById("universeCharactersPage").children.length; i++) {
+for (
+    let i = 0;
+    i < document.getElementById("universeCharactersPage").children.length;
+    i++
+) {
     universePageIdList[i] = `universeCharactersPage${i + 1}`;
 }
 
-musicPageIdList = [
-    "musicSongsPage",
-    "musicArtistsPage"
-];
+musicPageIdList = ["musicSongsPage", "musicArtistsPage"];
 
 musicArtistsPageIdList = [];
 
-for (let i = 0; i < document.getElementById("musicArtistsPagePage").children.length; i++) {
+for (
+    let i = 0;
+    i < document.getElementById("musicArtistsPagePage").children.length;
+    i++
+) {
     musicArtistsPageIdList[i] = `musicArtistsPagePage${i + 1}`;
 }
 
@@ -41,7 +46,8 @@ function show(pageId) {
     // 世界观
     for (let i = 0; i < universePageIdList.length; i++) {
         if (universePageIdList[i] !== pageId) {
-            document.getElementById(universePageIdList[i]).style.display = "none";
+            document.getElementById(universePageIdList[i]).style.display =
+                "none";
         }
     }
 
@@ -54,15 +60,19 @@ function show(pageId) {
 
     for (let i = 0; i < musicArtistsPageIdList.length; i++) {
         if (musicArtistsPageIdList[i] !== pageId) {
-            document.getElementById(musicArtistsPageIdList[i]).style.display = "none";
+            document.getElementById(musicArtistsPageIdList[i]).style.display =
+                "none";
         }
     }
 
+    // 总
     if (pageId.includes("musicArtistsPagePage")) {
         document.getElementById(pageId).style.display = "flex";
     } else {
         document.getElementById(pageId).style.display = "block";
     }
+
+    window.scrollTo(0, 0);
 }
 
 show("mainPage");
@@ -70,29 +80,31 @@ show("mainPage");
 const date = new Date();
 
 if (
-    (date.getMonth() + 1 === 10 && date.getDate() >= 17 - 7 && date.getDate() <= 17 + 7) || 
-    (date.getMonth() + 1 === 4 && date.getDate() >= 8 - 7 && date.getDate() <= 8 + 7) 
+    (date.getMonth() + 1 === 10 &&
+        date.getDate() >= 17 - 7 &&
+        date.getDate() <= 17 + 7) ||
+    (date.getMonth() + 1 === 4 &&
+        date.getDate() >= 8 - 7 &&
+        date.getDate() <= 8 + 7)
 ) {
-    
     document.getElementById("birthdayImg").style.display = "block";
     document.getElementById("mikuImg").style.display = "none";
     document.getElementById("miku01Img").style.display = "none";
-
 } else if (
-    (date.getMonth() + 1 === 3 && date.getDate() >= 9 - 7 && date.getDate() <= 9 + 7) ||
-    (date.getMonth() + 1 === 8 && date.getDate() >= 31 - 7 && date.getDate() <= 31 + 7)
+    (date.getMonth() + 1 === 3 &&
+        date.getDate() >= 9 - 7 &&
+        date.getDate() <= 9 + 7) ||
+    (date.getMonth() + 1 === 8 &&
+        date.getDate() >= 31 - 7 &&
+        date.getDate() <= 31 + 7)
 ) {
-
     document.getElementById("mikuImg").style.display = "block";
     document.getElementById("miku01Img").style.display = "block";
     document.getElementById("birthdayImg").style.display = "none";
-
 } else {
-
     document.getElementById("birthdayImg").style.display = "none";
     document.getElementById("mikuImg").style.display = "none";
     document.getElementById("miku01Img").style.display = "none";
-
 }
 
 /* 更新日志，版本0.3.3-alpha.4，2026/9/30/21:45/：
@@ -178,7 +190,7 @@ if (
     -加入了更多音乐制作人；
     -加入了生日日期彩蛋；
     -加入了初音未来日期彩蛋。
-*/ 
+*/
 
 /* 更新日志，版本0.4.1-alpha.1，2026/10/9/21:51/：
     -加入了音乐制作人档案页面；
@@ -193,4 +205,15 @@ if (
     -加入了部分音乐制作人档案页面的图片；
     -后续将更新《老爷卡carの跑酷》；
     -后续将加入更多图片。
-*/ 
+*/
+
+/* 更新日志，版本0.4.2-alpha.1，2026/10/14/17:43/：
+    -修复了页面在滚动后无法回到最顶的bug；
+    -加入了Prettier插件，现在的代码格式将会更统一了；
+    -更改了部分音乐制作人的图片源；
+    -加入了更多老爷卡car的介绍；
+    -加入了账号页面；
+    -加入了36个社交媒体账号；
+    -后续将更新《老爷卡carの跑酷》；
+    -后续将更改文件结构。
+*/
