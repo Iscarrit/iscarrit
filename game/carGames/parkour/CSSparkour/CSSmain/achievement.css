@@ -1,0 +1,152 @@
+#achBtn{
+
+    position:absolute;
+
+    right:80px;
+    top:400px;
+
+    width:70px;
+    height:70px;
+
+    font-size:36px;
+
+    cursor:crosshair;
+
+    z-index:20;
+
+    transition:0.15s;
+}
+
+#achBtn:hover{
+
+    transform:scale(1.05);
+}
+
+#achBtn:active{
+
+    transform:scale(0.95);
+}
+
+#achMenu{
+
+    position:absolute;
+    left:0;
+    top:0;
+
+    width:100%;
+    height:100%;
+
+    background:#ddd;
+
+    display:flex;
+    flex-direction:column;
+
+    align-items:center;
+
+    padding-top:50px;
+
+    gap:20px;
+
+    z-index:20;
+}
+
+#achList{
+    width:60%;
+    max-height:50vh;
+    overflow-y:auto;
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+
+    padding-right:10px;
+}
+
+#achList::-webkit-scrollbar{
+    width:10px;
+}
+
+#achList::-webkit-scrollbar-thumb{
+    background:#888;
+    border-radius:5px;
+}
+
+#achList::-webkit-scrollbar-track{
+    background:#eee;
+}
+
+.achItem{
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    gap:10px;
+    background:white;
+
+    padding:20px;
+    min-height:40px;
+    border:4px solid black;
+
+    font-size:28px;
+}
+
+#achExit{
+
+    width:100px;
+    height:50px;
+
+    font-size:20px;
+
+    cursor:crosshair;
+
+    transition:0.15s;
+}
+
+#achExit:hover{
+
+    transform:scale(1.05);
+}
+
+#achUnlockPopup{
+
+    position:absolute;
+
+    top:80px;
+    left:-300px;
+
+    width:270px;
+    height:100px;
+
+    background:white;
+
+    border:4px solid black;
+
+    border-radius:20px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    justify-content:center;
+
+    overflow:hidden;
+
+    gap:5px;
+
+    z-index:999;
+
+    transition:0.6s;
+}
+
+#achUnlockText{
+    margin:0;
+    font-size:22px;
+}
+
+#achUnlockDesc{
+    font-size:18px;
+    text-align:center;
+    padding:0 10px;
+}

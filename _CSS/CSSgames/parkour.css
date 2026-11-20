@@ -1,0 +1,9 @@
+#gameFrame {
+    display: none;
+    margin: 0 auto;
+
+    width: 82vw;
+    height: 82vh;
+    
+    border: none;
+}

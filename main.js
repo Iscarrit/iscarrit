@@ -1,3 +1,5 @@
+/* 
+
 mainPageIdList = [
     "mainPage",
     "universePage",
@@ -76,6 +78,40 @@ function show(pageId) {
 }
 
 show("mainPage");
+
+*/
+
+function show(pageId) {
+    const pageRoutes = {
+        mainPage: "index.html",
+        accountPage: "account/account.html",
+        animePage: "anime/anime.html",
+        comicPage: "comic/comic.html",
+        gamePage: "game/game.html",
+        novelPage: "novel/novel.html",
+        universePage: "universe/universe.html",
+        musicPage: "music/music.html",
+        musicArtistsPage: "music/artists/artists.html",
+        musicSongsPage: "music/songs/songs.html",
+    };
+
+    let pageUrl = pageRoutes[pageId];
+
+    if (!pageUrl && /^artist\d+$/.test(pageId)) {
+        pageUrl = `music/artists/${pageId}/${pageId}.html`;
+    }
+
+    if (!pageUrl && /^character\d+$/.test(pageId)) {
+        pageUrl = `universe/characters/${pageId}/${pageId}.html`;
+    }
+
+    if (!pageUrl) {
+        console.error("找不到页面：" + pageId);
+        return;
+    }
+
+    window.location.href = "/" + pageUrl;
+}
 
 const date = new Date();
 
@@ -216,4 +252,10 @@ if (
     -加入了36个社交媒体账号；
     -后续将更新《老爷卡carの跑酷》；
     -后续将更改文件结构。
+*/
+
+/* 更新日志，版本0.5.0-beta.1，2026/11/19/19:51/：
+    -更改了网站的文件结构，未完成；
+    -更改了网站的标题；
+    -后续将更改其他结构。
 */
