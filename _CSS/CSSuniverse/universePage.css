@@ -3,7 +3,6 @@
     grid-template-columns: repeat(4, 1fr);
     gap: 1vw;
     padding: 1vw;
-
 }
 
 #universePageTitle,
@@ -23,11 +22,11 @@
 .universePageCharactersCards {
     background-color: lightgray;
     border: gray solid 5px;
+
     width: auto;
-    aspect-ratio: 1/1;
+    height: 1/1;
 
     align-items: center;
-
 }
 
 #universePage h2 {
@@ -60,5 +59,4 @@
 
     display: block;
     margin: 0 auto;
-
 }

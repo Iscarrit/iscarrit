@@ -1,7 +1,15 @@
 // 主页按钮
-document.getElementById("mainPageBtn").onclick = () => {
+function bindButton(id, callback) {
+    const btn = document.getElementById(id);
 
-    playSound(mainClickSound);
+    if (!btn) return;
 
-    show("mainPage");
+    btn.onclick = () => {
+        playSound(mainClickSound);
+        callback();
+    };
 }
+
+document.addEventListener("navigateLoaded", () => {
+    bindButton("mainPageBtn", () => show("main"));
+});

@@ -81,66 +81,12 @@ show("mainPage");
 
 */
 
-function show(pageId) {
-    const pageRoutes = {
-        mainPage: "index.html",
-        accountPage: "account/account.html",
-        animePage: "anime/anime.html",
-        comicPage: "comic/comic.html",
-        gamePage: "game/game.html",
-        novelPage: "novel/novel.html",
-        universePage: "universe/universe.html",
-        musicPage: "music/music.html",
-        musicArtistsPage: "music/artists/artists.html",
-        musicSongsPage: "music/songs/songs.html",
-    };
-
-    let pageUrl = pageRoutes[pageId];
-
-    if (!pageUrl && /^artist\d+$/.test(pageId)) {
-        pageUrl = `music/artists/${pageId}/${pageId}.html`;
+function show(path) {
+    if (path === "main") {
+        window.location.href = `/`;
+    } else {
+        window.location.href = `/${path}/index.html`;
     }
-
-    if (!pageUrl && /^character\d+$/.test(pageId)) {
-        pageUrl = `universe/characters/${pageId}/${pageId}.html`;
-    }
-
-    if (!pageUrl) {
-        console.error("找不到页面：" + pageId);
-        return;
-    }
-
-    window.location.href = "/" + pageUrl;
-}
-
-const date = new Date();
-
-if (
-    (date.getMonth() + 1 === 10 &&
-        date.getDate() >= 17 - 7 &&
-        date.getDate() <= 17 + 7) ||
-    (date.getMonth() + 1 === 4 &&
-        date.getDate() >= 8 - 7 &&
-        date.getDate() <= 8 + 7)
-) {
-    document.getElementById("birthdayImg").style.display = "block";
-    document.getElementById("mikuImg").style.display = "none";
-    document.getElementById("miku01Img").style.display = "none";
-} else if (
-    (date.getMonth() + 1 === 3 &&
-        date.getDate() >= 9 - 7 &&
-        date.getDate() <= 9 + 7) ||
-    (date.getMonth() + 1 === 8 &&
-        date.getDate() >= 31 - 7 &&
-        date.getDate() <= 31 + 7)
-) {
-    document.getElementById("mikuImg").style.display = "block";
-    document.getElementById("miku01Img").style.display = "block";
-    document.getElementById("birthdayImg").style.display = "none";
-} else {
-    document.getElementById("birthdayImg").style.display = "none";
-    document.getElementById("mikuImg").style.display = "none";
-    document.getElementById("miku01Img").style.display = "none";
 }
 
 /* 更新日志，版本0.3.3-alpha.4，2026/9/30/21:45/：
@@ -258,4 +204,18 @@ if (
     -更改了网站的文件结构，未完成；
     -更改了网站的标题；
     -后续将更改其他结构。
+*/
+
+/* 更新日志，版本0.5.1-beta.1，2026/11/20/16:22/：
+    -修复了世界观界面卡片超出屏幕宽度的bug；
+    -修复了UTF-8乱码的bug；
+    -更改了一部分遗产代码，现在保留为注释，后续将会删除；
+    -加入了多个文件；
+    -修复了导航栏只在主页显示的bug；
+    -加入了导航栏无法在主页显示的bug；
+    -加入了导航栏部分按钮无法使用的bug；
+    -加入了更多暂未发现的bug；
+    -加入了网站的子目录，现在可以使用返回键了；
+    -后续将继续修复文件结构带来的问题；
+    -暂时搁置其他所有更新，目前只进行bug修复。
 */

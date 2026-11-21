@@ -1,13 +1,15 @@
 // 游戏按钮
-document.getElementById("gameBtn").onclick = () => {
-    playSound(mainClickSound);
+function bindButton(id, callback) {
+    const btn = document.getElementById(id);
 
-    show("gamePage");
-};
+    if (!btn) return;
 
-document.getElementById("parkourBtn").onclick = () => {
-    playSound(mainClickSound);
+    btn.onclick = () => {
+        playSound(mainClickSound);
+        callback();
+    };
+}
 
-    show("gameFrame");
-    document.getElementById("gameFrame").src = "games/parkour/parkour.html";
-};
+document.addEventListener("navigateLoaded", () => {
+    bindButton("gameBtn", () => show("game"));
+});

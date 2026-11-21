@@ -1,4 +1,4 @@
-#universeCharactersPage {
+.universeCharactersPages {
     margin-left: 1vw;
     margin-right: 1vw;
 }
@@ -12,7 +12,7 @@
     align-items: center;
 }
 
-#universeCharactersPage img {
+.universeCharactersPages img {
     width: 25vw;
     aspect-ratio: 1/1;
 

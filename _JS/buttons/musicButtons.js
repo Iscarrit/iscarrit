@@ -1,34 +1,33 @@
 // 音乐按钮
-document.getElementById("musicBtn").onclick = () => {
-    playSound(mainClickSound);
+function bindButton(id, callback) {
+    const btn = document.getElementById(id);
 
-    show("musicPage");
-};
+    if (!btn) return;
 
-document.getElementById("songsCardBtn").onclick = () => {
-    playSound(mainClickSound);
+    btn.onclick = () => {
+        playSound(mainClickSound);
+        callback();
+    };
+}
 
-    show("musicSongsPage");
-};
+document.addEventListener("navigateLoaded", () => {
+    bindButton("musicBtn", () => show("music"));
+});
 
-document.getElementById("artistsCardBtn").onclick = () => {
-    playSound(mainClickSound);
+bindButton("songsCardBtn", () => show("music/songs"));
+bindButton("artistsCardBtn", () => show("music/artists"));
+bindButton("derivativesCardBtn", () => show("music/derivatives"));
+bindButton("principlesCardBtn", () => show("music/principles"));
 
-    show("musicArtistsPage");
-};
+document
+    .querySelectorAll('[id^="musicArtistsPageCard"][id$="Btn"]')
+    .forEach((btn) => {
+        const match = btn.id.match(/^musicArtistsPageCard(\d+)Btn$/);
 
-for (
-    let i = 1;
-    i <= document.getElementById("musicArtistsPagePage").children.length;
-    i++
-) {
-    const btn = document.getElementById(`musicArtistsPageCard${i}Btn`);
+        if (!match) return;
 
-    if (btn) {
         btn.onclick = () => {
             playSound(mainClickSound);
-
-            show(`musicArtistsPagePage${i}`);
+            show(`music/artists/artist${match[1]}`);
         };
-    }
-}
+    });

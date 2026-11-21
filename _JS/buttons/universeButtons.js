@@ -1,20 +1,28 @@
 // 世界观按钮
-document.getElementById("universeBtn").onclick = () => {
+function bindButton(id, callback) {
+    const btn = document.getElementById(id);
 
-    playSound(mainClickSound);
+    if (!btn) return;
 
-    show("universePage");
+    btn.onclick = () => {
+        playSound(mainClickSound);
+        callback();
+    };
 }
 
-for (let i = 1; i <= document.getElementById("universeCharactersPage").children.length; i++) {
-    const btn = document.getElementById(`universePageCharactersCard${i}Btn`);
+document.addEventListener("navigateLoaded", () => {
+    bindButton("universeBtn", () => show("universe"));
+});
 
-    if (btn) {
+document
+    .querySelectorAll('[id^="universePageCharactersCard"][id$="Btn"]')
+    .forEach((btn) => {
+        const match = btn.id.match(/^universePageCharactersCard(\d+)Btn$/);
+
+        if (!match) return;
+
         btn.onclick = () => {
-
             playSound(mainClickSound);
-            show(`universeCharactersPage${i}`);
-
+            show(`universe/characters/character${match[1]}`);
         };
-    }
-}
+    });

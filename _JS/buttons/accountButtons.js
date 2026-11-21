@@ -1,6 +1,15 @@
 // 账号按钮
-document.getElementById("accountBtn").onclick = () => {
-    playSound(mainClickSound);
+function bindButton(id, callback) {
+    const btn = document.getElementById(id);
 
-    show("accountPage");
-};
+    if (!btn) return;
+
+    btn.onclick = () => {
+        playSound(mainClickSound);
+        callback();
+    };
+}
+
+document.addEventListener("navigateLoaded", () => {
+    bindButton("accountBtn", () => show("account"));
+});

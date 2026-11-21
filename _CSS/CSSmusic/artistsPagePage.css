@@ -1,4 +1,4 @@
-#musicArtistsPagePage {
+.musicArtistsPagePages {
     margin-left: 1vw;
     margin-right: 1vw;
 }
@@ -23,7 +23,7 @@
     text-align: left;
 }
 
-#musicArtistsPagePage img {
+.musicArtistsPagePages img {
     width: 25vw;
     height: auto;
 

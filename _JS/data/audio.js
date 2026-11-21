@@ -1,7 +1,7 @@
-const mainClickSound = new Audio("mainData/mainAudio/buttonMain.mp3");
+const mainClickSound = new Audio("/_DATA/audio/buttonMain.mp3");
 
 // 音效
-function playSound(sound){
+function playSound(sound) {
     sound.currentTime = 0;
     sound.play();
 }
