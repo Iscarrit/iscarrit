@@ -1,7 +1,15 @@
-const mainClickSound = new Audio("/_DATA/audio/buttonMain.mp3");
+/* 按钮
+document.addEventListener(
+    "click",
+    (event) => {
+        const button = event.target.closest("button");
 
-// 音效
-function playSound(sound) {
-    sound.currentTime = 0;
-    sound.play();
-}
+        if (!button || button.disabled) return;
+
+        const sound = new Audio("/_DATA/audio/buttonMain.mp3");
+        sound.currentTime = 0;
+        sound.play();
+    },
+    true,
+);
+*/

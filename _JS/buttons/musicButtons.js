@@ -5,14 +5,9 @@ function bindButton(id, callback) {
     if (!btn) return;
 
     btn.onclick = () => {
-        playSound(mainClickSound);
         callback();
     };
 }
-
-document.addEventListener("navigateLoaded", () => {
-    bindButton("musicBtn", () => show("music"));
-});
 
 bindButton("songsCardBtn", () => show("music/songs"));
 bindButton("artistsCardBtn", () => show("music/artists"));
@@ -27,7 +22,6 @@ document
         if (!match) return;
 
         btn.onclick = () => {
-            playSound(mainClickSound);
             show(`music/artists/artist${match[1]}`);
         };
     });

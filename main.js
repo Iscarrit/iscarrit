@@ -82,11 +82,7 @@ show("mainPage");
 */
 
 function show(path) {
-    if (path === "main") {
-        window.location.href = `/`;
-    } else {
-        window.location.href = `/${path}/index.html`;
-    }
+    window.location.href = `/${path}/index.html`;
 }
 
 /* 更新日志，版本0.3.3-alpha.4，2026/9/30/21:45/：
@@ -218,4 +214,15 @@ function show(path) {
     -加入了网站的子目录，现在可以使用返回键了；
     -后续将继续修复文件结构带来的问题；
     -暂时搁置其他所有更新，目前只进行bug修复。
+*/
+
+/* 更新日志，版本0.5.1-beta.2，2026/11/26/19:42/：
+    -修复了UTF-8乱码的bug，上个版本并未修复；
+    -修复了导航栏的所有bug；
+    -移除了网站的按钮点击音效；
+    -加入了《老爷卡carの跑酷》，现在又可以玩了；
+    -修复了所有其余的bug；
+    -加入了404页面；
+    -更改了多处小型代码；
+    -后续将继续更新其他内容。
 */

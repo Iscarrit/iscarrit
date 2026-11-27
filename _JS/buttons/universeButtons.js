@@ -5,14 +5,9 @@ function bindButton(id, callback) {
     if (!btn) return;
 
     btn.onclick = () => {
-        playSound(mainClickSound);
         callback();
     };
 }
-
-document.addEventListener("navigateLoaded", () => {
-    bindButton("universeBtn", () => show("universe"));
-});
 
 document
     .querySelectorAll('[id^="universePageCharactersCard"][id$="Btn"]')
@@ -22,7 +17,6 @@ document
         if (!match) return;
 
         btn.onclick = () => {
-            playSound(mainClickSound);
             show(`universe/characters/character${match[1]}`);
         };
     });

@@ -5,11 +5,6 @@ function bindButton(id, callback) {
     if (!btn) return;
 
     btn.onclick = () => {
-        playSound(mainClickSound);
         callback();
     };
 }
-
-document.addEventListener("navigateLoaded", () => {
-    bindButton("accountBtn", () => show("account"));
-});
