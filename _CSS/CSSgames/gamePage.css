@@ -3,7 +3,6 @@
     grid-template-columns: repeat(2, 1fr);
     gap: 1vw;
     padding: 1vw;
-    
 }
 
 .gamesCards {
@@ -11,42 +10,32 @@
     border: gray solid 5px;
 
     width: auto;
-    height: 66vh;
+    height: 59vh;
 
     align-items: center;
 }
 
-#gamePageTitle {
+#gamePage h1,
+#gamePage h2,
+#gamePage h3 {
     text-align: center;
     margin-top: 0.5vh;
     margin-bottom: 0.5vh;
 }
 
-#parkourTitle, 
-#wsolTitle {
-    text-align: center;
-
-    margin-top: 1vh;
-}
-
-#parkourSubTitle, 
-#wsolSubTitle {
-    text-align: center;
-
-    margin-top: 1vh;
-}
-
-#parkourCoverImg,
-#wsolCoverImg {
+#gameCollectionCardImg,
+#carGameCardImg {
     width: auto;
-    height: 55%;
+    height: 60%;
 
     display: block;
     margin: 0 auto;
+    margin-top: 2vh;
+    margin-bottom: 2vh;
 }
 
-#parkourBtn, 
-#wsolBtn {
+#gameCollectionCardBtn,
+#carGameCardBtn {
     width: 8vw;
     height: 6vh;
 

@@ -16,6 +16,7 @@
 
         <link rel="stylesheet" href="/_CSS/CSSaccount/accountPage.css" />
 
+        <link rel="stylesheet" href="/_CSS/CSSgames/carGamePage.css" />
         <link rel="stylesheet" href="/_CSS/CSSgames/gamePage.css" />
         <link rel="stylesheet" href="/_CSS/CSSgames/parkour.css" />
 
@@ -35,13 +36,47 @@
         <script src="/_JS/easterEgg/date.js"></script>
         <script src="/_JS/data/navigate.js"></script>
 
-        <!-- 小说页面 -->
-        <div id="novelPage"></div>
+        <!-- 自制游戏页面 -->
+        <div id="carGamePage">
+            <h1 id="carGamePageTitle">自制游戏</h1>
+            <h2 id="carGamePageSubTitle">老爷卡carの自制游戏</h2>
+
+            <div id="carGamePageCards">
+                <div class="carGamesCards" id="parkour">
+                    <h2 id="parkourTitle">老爷卡carの跑酷</h2>
+                    <h3 id="parkourSubTitle">
+                        老爷卡car的经典小游戏，试着到达最右侧吧！
+                    </h3>
+                    <img
+                        id="parkourCoverImg"
+                        alt="跑酷封面"
+                        src="/_DATA/images/mainPageImages/跑酷封面.png"
+                    />
+                    <button id="parkourBtn">
+                        <h3>开始游戏</h3>
+                    </button>
+                </div>
+                <div class="carGamesCards" id="wsol">
+                    <h2 id="wsolTitle">是界·局是 Online</h2>
+                    <h3 id="wsolSubTitle">风云变幻的卡牌对战游戏！</h3>
+                    <img
+                        id="wsolCoverImg"
+                        alt="是界局是封面"
+                        src="/_DATA/images/mainPageImages/是界局是封面.png"
+                    />
+                    <button id="wsolBtn">
+                        <h3>开始游戏</h3>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <iframe id="gameFrame" src="about:blank" style="display: none"></iframe>
 
         <script src="/main.js"></script>
 
         <script src="/_JS/buttons/accountButtons.js"></script>
-
+        <script src="/_JS/buttons/gameButtons.js"></script>
         <script src="/_JS/buttons/mainPageButtons.js"></script>
         <script src="/_JS/buttons/musicButtons.js"></script>
         <script src="/_JS/buttons/universeButtons.js"></script>

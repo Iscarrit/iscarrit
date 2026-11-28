@@ -1,0 +1,54 @@
+#carGamePageCards {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1vw;
+    padding: 1vw;
+}
+
+.carGamesCards {
+    background-color: lightgray;
+    border: gray solid 5px;
+
+    width: auto;
+    height: 59vh;
+
+    align-items: center;
+}
+
+#carGamePage h1,
+#carGamePage h2,
+#carGamePage h3 {
+    text-align: center;
+    margin-top: 0.5vh;
+    margin-bottom: 0.5vh;
+}
+
+#parkourCoverImg,
+#wsolCoverImg {
+    width: auto;
+    height: 60%;
+
+    display: block;
+    margin: 0 auto;
+    margin-top: 2vh;
+    margin-bottom: 2vh;
+}
+
+#parkourBtn,
+#wsolBtn {
+    width: 8vw;
+    height: 6vh;
+
+    background-color: white;
+    border: gray solid 4px;
+
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+
+    display: flex;
+    margin: 2vh auto 2vh auto;
+
+    font-size: 95%;
+    font-weight: bold;
+}

@@ -9,15 +9,18 @@ function bindButton(id, callback) {
     };
 }
 
-document.getElementById("parkourBtn").onclick = () => {
+bindButton("gameCollectionCardBtn", () => show("game/gameCollections"));
+bindButton("carGameCardBtn", () => show("game/carGames"));
+
+bindButton("parkourBtn", () => {
     if (document.getElementById("gameFrame").style.display === "none") {
-        document.getElementById("gamePage").style.display = "none";
+        document.getElementById("carGamePage").style.display = "none";
         document.getElementById("gameFrame").style.display = "block";
         document.getElementById("gameFrame").src =
             "/game/carGames/parkour/index.html";
     } else {
         document.getElementById("gameFrame").src = "about:blank";
         document.getElementById("gameFrame").style.display = "none";
-        document.getElementById("gamePage").style.display = "block";
+        document.getElementById("carGamePage").style.display = "block";
     }
-};
+});

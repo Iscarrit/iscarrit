@@ -1,0 +1,57 @@
+#gameCollectionPageCards {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1vw;
+    padding: 1vw;
+}
+
+#gameCollectionPageTitle,
+#gameCollectionPageSubTitle {
+    text-align: center;
+    margin-top: 0.5vh;
+    margin-bottom: 0.5vh;
+}
+
+#gameCollectionPage h2 {
+    text-align: center;
+    margin-top: 0.5vh;
+    margin-bottom: 0.5vh;
+}
+
+.gameCollectionPageCards {
+    background-color: lightgray;
+    border: gray solid 5px;
+
+    width: auto;
+    height: 1/1;
+
+    align-items: center;
+}
+
+#gameCollectionPage img {
+    width: 70%;
+    aspect-ratio: 1/1;
+
+    display: block;
+    margin: 0 auto;
+    margin-top: 1vh;
+    margin-bottom: 1vh;
+}
+
+#gameCollectionPage button {
+    width: 8vw;
+    height: 6vh;
+
+    background-color: white;
+    border: gray solid 4px;
+
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+
+    display: flex;
+    margin: 1vh auto 1vh auto;
+
+    font-size: 95%;
+    font-weight: bold;
+}

@@ -16,8 +16,8 @@ fetch("/navigate.html")
             (location.href = "/comic/index.html");
         document.getElementById("gameBtn").onclick = () =>
             (location.href = "/game/index.html");
-        document.getElementById("novelBtn").onclick = () =>
-            (location.href = "/novel/index.html");
+        document.getElementById("literatureBtn").onclick = () =>
+            (location.href = "/literature/index.html");
         document.getElementById("accountBtn").onclick = () =>
             (location.href = "/account/index.html");
 

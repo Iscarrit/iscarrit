@@ -3,7 +3,6 @@
     grid-template-columns: repeat(4, 1fr);
     gap: 1vw;
     padding: 1vw;
-
 }
 
 #songsCard,
@@ -13,10 +12,9 @@
     background-color: lightgray;
     border: gray solid 5px;
     width: auto;
-    height: 66vh;
+    height: 59vh;
 
     align-items: center;
-
 }
 
 #musicPage button {
@@ -46,7 +44,7 @@
 }
 
 #musicPage img {
-    width: 70%;
+    width: 60%;
     height: auto;
 
     display: block;

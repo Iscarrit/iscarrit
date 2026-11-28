@@ -1,0 +1,55 @@
+#literaturePageCards {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1vw;
+    padding: 1vw;
+}
+
+#libraryCard,
+#novelCard,
+#miscellaneousCard,
+#quotesCard {
+    background-color: lightgray;
+    border: gray solid 5px;
+    width: auto;
+    height: 59vh;
+
+    align-items: center;
+}
+
+#literaturePage button {
+    width: 8vw;
+    height: 6vh;
+
+    background-color: white;
+    border: gray solid 4px;
+
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+
+    display: flex;
+    margin: 1vh auto 1vh auto;
+
+    font-size: 95%;
+    font-weight: bold;
+}
+
+#literaturePage h1,
+#literaturePage h2,
+#literaturePage h3 {
+    text-align: center;
+    margin-top: 0.5vh;
+    margin-bottom: 0.5vh;
+}
+
+#literaturePage img {
+    width: 60%;
+    height: auto;
+
+    display: block;
+
+    margin: 0 auto;
+    margin-top: 4vh;
+    margin-bottom: 4vh;
+}
